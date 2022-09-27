@@ -13,6 +13,10 @@ export const createProduct = async (req, res) => {
   res.status(201).json(result)
 }
 
-export const getProductById = (req, res) => {}
-export const updateProductById = (req, res) => {}
-export const deleteProductById = (req, res) => {}
+export const getProductById = async (req, res) => {
+  const rsturnedProduct = await Product.findById(req.params.productId)
+  res.json(rsturnedProduct)
+}
+
+export const updateProductById = async (req, res) => {}
+export const deleteProductById = async (req, res) => {}
