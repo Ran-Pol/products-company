@@ -1,7 +1,7 @@
 {
   "name": "products-company",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an api for the products of X company.",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir build",
