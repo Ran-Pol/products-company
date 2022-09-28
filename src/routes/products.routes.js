@@ -16,7 +16,7 @@ router.get('/:productId', productsCtrl.getProductById)
 
 router.delete(
   '/:productId',
-  [authJwt.verifyToken, authJwt.isModerator],
+  [authJwt.verifyToken, authJwt.isAdmin],
   productsCtrl.deleteProductById
 )
 
