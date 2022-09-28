@@ -1,3 +1,4 @@
+import { json } from 'express/lib/response'
 import Product from '../models/Product'
 
 export const getProducts = async (req, res) => {
@@ -18,5 +19,15 @@ export const getProductById = async (req, res) => {
   res.json(rsturnedProduct)
 }
 
-export const updateProductById = async (req, res) => {}
-export const deleteProductById = async (req, res) => {}
+export const updateProductById = async (req, res) => {
+  const { productId } = req.params
+  const updatedProduct = await Product.findByIdAndUpdate(productId, req.body, {
+    new: true,
+  })
+  res.status(200).json(updatedProduct)
+}
+
+export const deleteProductById = async (req, res) => {
+  const { productId } = req.params
+  await Product.findByIdAndDelete(productId)
+}
